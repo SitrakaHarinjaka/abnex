@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 router.post('/signin', async (req, res) => {
   const userExists = await Users.findOne({ email: req.body.email });
   if (userExists) {
-    return res.status(400).send('This user already exists');
+    return res.send('This user already exists');
   }
 
   const hashpassword = await bcrypt.hash(req.body.password, 12);
@@ -36,12 +36,12 @@ router.post('/signin', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const user = await Users.findOne({ email: req.body.email });
-  if (!user)return res.status(400).send('Email not found');  
+  if (!user)return res.send({isLogged: false});  
   //check password
   const validPass = await bcrypt.compare(req.body.password, user.password);
 
-  if(!validPass)  return res.status(400).send('Email not found');
-  res.send('Looged In')
+  if(!validPass)  return res.send({isLogged: false});
+  res.send({isLogged: true,email: user.email})
 });
 
 
