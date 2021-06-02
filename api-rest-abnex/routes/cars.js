@@ -17,10 +17,6 @@ router.get('/', async (req, res) => {
 
 //SUBMITS A POTS
 
-// "marque": "My first posts modified",
-//     "couleur": "Rouge",
-//     "description" : "ceci est une petite description "
-
 router.post('/', async (req, res) => {
   const cars = new Cars({
     mark: req.body.mark,
