@@ -8,7 +8,7 @@ const Cars = require('../models/Cars');
 //GET THE carsS
 router.get('/', async (req, res) => {
   try {
-    const cars = await cars.find();
+    const cars = await Cars.find();
     res.json(cars);
   } catch (err) {
     res.json({ message: err });
