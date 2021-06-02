@@ -1,0 +1,14 @@
+@import '../../scss/variable.module.scss';
+
+.footer{
+    background-color: $dark-color;
+    padding: $space 0;
+    z-index: 1000;
+    .container{
+        width: $max-width;
+        margin: auto;
+        text-align: right;
+        color: $white-color;
+    }
+
+}
