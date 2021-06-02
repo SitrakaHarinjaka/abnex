@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
 // SPECIFIC cars
 router.get('/:carsId', async (req, res) => {
   try {
-    const cars = await cars.findById(req.params.carsId);
+    const cars = await Cars.findById(req.params.carsId);
     res.json(cars);
   } catch (err) {
     res.json({ message: err });
@@ -48,7 +48,7 @@ router.get('/:carsId', async (req, res) => {
 //DELETE cars
 router.delete('/:carsId', async (req, res) => {
   try {
-    const remove = await cars.remove({ _id: req.params.carsId });
+    const remove = await Cars.remove({ _id: req.params.carsId });
     res.json(remove);
   } catch (error) {
     res.json({ message: err });
