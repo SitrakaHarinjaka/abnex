@@ -19,4 +19,4 @@ mongoose.connect(process.env.DB_CONNECTION,{ useNewUrlParser: true, useUnifiedTo
 );
 
 //CONNECT DATABASE
-app.listen(3000);
+app.listen(3001);
