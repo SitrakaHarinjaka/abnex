@@ -1,28 +1,30 @@
+import React, { memo } from 'react';
 
-import './App.css';
 import Footer from './component/Footer';
 import Header from './component/Header';
-import carsList from './data';
 import ListCars from './component/ListCars/ListCars';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import "./scss/fonts.scss";
-import "./scss/global.scss";
 
-function App() {
+import './scss/fonts.scss';
+import './scss/global.scss';
+
+
+const App = memo(() => {
   return (
     <Router>
       <div className="containtApp">
-        <Header/>
+        <Header />
         <div className="containerRoot">
-          <Route path="/list">
-            <ListCars data={carsList}/>
+
+          <Route path="/">
+            <ListCars />
           </Route>
         </div>
-        <Footer/>
+        <Footer />
       </div>
     </Router>
   );
-}
+});
 
 export default App;
