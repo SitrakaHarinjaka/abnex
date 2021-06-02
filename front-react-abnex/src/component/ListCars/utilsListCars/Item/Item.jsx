@@ -1,19 +1,19 @@
 import React, { memo, useMemo } from 'react';
 import PropTypes from 'prop-types';
-
+import { Link } from 'react-router-dom';
 
 import styles from './Item.module.scss';
 
 const Item = memo(({ data }) => {
-  const { mark, color, type, description } = data;
+  const { mark, color, type, description, _id } = data;
 
-  
   const thumbImage = useMemo(() => {
     return require(`../../../../images/${mark}.png`);
   }, [mark]);
 
 
     return (
+    <Link to={`/car/${_id}`}>
       <div className={styles.item}>
         <div className={styles.imageVideoContainer}>
           <div className={styles.imageVideo}>
@@ -29,9 +29,9 @@ const Item = memo(({ data }) => {
           <p className={styles.contentAudio}>{description}</p>
         </div>
       </div>
+    </Link>
     );
-  }
-);
+  });
 
 Item.propTypes = {
   data: PropTypes.object.isRequired,
