@@ -1,9 +1,12 @@
 import { combineReducers } from 'redux';
-import { carReducer , selectedCarReducer} from './carReducer';
+import { carReducer, selectedCarReducer, logUser , signinUSer} from './carReducer';
+
 
 const reducers = combineReducers({
   allCars: carReducer,
-  car: selectedCarReducer
+  car: selectedCarReducer,
+  isLogged: logUser,
+  signUser: signinUSer
 });
 
 export default reducers;

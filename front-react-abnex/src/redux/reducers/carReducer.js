@@ -12,11 +12,31 @@ export const carReducer = (state = initialState, { type, payload }) => {
   }
 };
 
-export const selectedCarReducer = (state = {}, {type, payload})=>{
+export const selectedCarReducer = (state = {}, { type, payload }) => {
   switch (type) {
     case ActionTypes.SELECTED_CARS:
-      return{...state, ...payload}
+      return { ...state, ...payload };
     default:
-      return state
+      return state;
   }
-}
+};
+
+export const logUser = (state = { isLogged: false }, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.LOG_USER:
+      return { ...state, ...payload };
+
+    default:
+      return state;
+  }
+};
+
+export const signinUSer = (state = {}, { type, payload }) => {
+  switch (type) {
+    case ActionTypes.SIGNIN_USER:
+      return { ...state, ...payload };
+
+    default:
+      return state;
+  }
+};

@@ -22,4 +22,24 @@
             }
         }
     }
+    .navImage{
+        display: flex;
+        align-items: center;
+    }
+    .navigation{
+        ul{
+            li{
+                display: inline;
+                a{
+                    font: 700 14px/21px $font-din;
+                    color: $primary-color;
+                    margin-right: $space;
+                    transition: color ease-in-out .5s;
+                    &:hover{
+                        color: $dark-color;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -1,15 +1,16 @@
-import React, { memo, useEffect, useMemo, useState } from 'react';
+import React, { memo, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedCars } from '../../redux/action/carsActions';
+import CommentaireForm from './utilsSingleCars/CommentaireForm';
 
 import styles from './SingleCars.module.scss';
 
 const SingleCars = memo(() => {
   const car = useSelector((state) => state.car);
-  const [img, setImg] = useState('');
+  const loggedIn = useSelector((state) => state.isLogged.isLogged);
   const { mark, color, description, type } = car;
   const { idCars } = useParams();
   const dispatch = useDispatch();
@@ -27,9 +28,6 @@ const SingleCars = memo(() => {
   }, [idCars]);
 
   const thumbImage = useMemo(() => {
-    // if(car && car!==""){
-    //   return require(`../../images/${car.mark}.png`);
-    // }
     if (car.mark && car.mark !== undefined) {
       return require(`../../images/${car.mark}.png`).default;
     }
@@ -53,6 +51,13 @@ const SingleCars = memo(() => {
           </div>
         </div>
       </div>
+      {
+        (loggedIn)?
+          <CommentaireForm name={"sitraka"}/>
+          :null
+      }
+
+      
     </section>
   );
 });

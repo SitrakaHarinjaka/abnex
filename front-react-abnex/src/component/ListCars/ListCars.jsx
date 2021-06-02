@@ -10,6 +10,8 @@ import style from './ListCars.module.scss';
 
 const ListCars = memo(() => {
   const cars = useSelector((state) => state.allCars.cars);
+  
+
 
   const dispatch = useDispatch();
 
