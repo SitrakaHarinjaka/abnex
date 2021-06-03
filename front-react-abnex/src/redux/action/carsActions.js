@@ -13,3 +13,10 @@ export const selectedCars = (car) => {
     payload: car,
   };
 };
+
+export const getComments = comments =>{  
+  return{
+    type: ActionTypes.GET_COMMENTS,
+    payload: comments
+  };
+}

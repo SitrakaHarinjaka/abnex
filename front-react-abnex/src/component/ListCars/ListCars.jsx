@@ -22,6 +22,7 @@ const ListCars = memo(() => {
         console.log('Err', err);
       });
     dispatch(setCars(response.data));
+    console.log(cars);
   };
 
   useEffect(() => {

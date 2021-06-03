@@ -40,3 +40,11 @@ export const signinUSer = (state = {}, { type, payload }) => {
       return state;
   }
 };
+export const getComments = (state = [], { type, payload }) => {
+  switch (type) {
+    case ActionTypes.GET_COMMENTS:
+      return { ...state, comments: payload };
+    default:
+      return state;
+  }
+};

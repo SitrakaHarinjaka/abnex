@@ -5,6 +5,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectedCars } from '../../redux/action/carsActions';
 import CommentaireForm from './utilsSingleCars/CommentaireForm';
+import CommentaireList from './utilsSingleCars/CommentaireList';
 
 import styles from './SingleCars.module.scss';
 
@@ -51,9 +52,10 @@ const SingleCars = memo(() => {
           </div>
         </div>
       </div>
+      <CommentaireList id={idCars} />
       {
         (loggedIn)?
-          <CommentaireForm name={"sitraka"}/>
+          <CommentaireForm id={idCars} />
           :null
       }
 
