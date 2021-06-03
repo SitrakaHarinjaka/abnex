@@ -13,3 +13,10 @@ export const setSignin = newUser =>{
     payload: newUser
   }
 }
+
+export const setConnectedUser =  user => {
+  return{
+    type: ActionTypes.CONNECTED_USER, 
+    payload: user
+  }
+}

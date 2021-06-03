@@ -1,25 +1,42 @@
-import React, { memo } from 'react';
+import React, { memo, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
 // import { setComment } from '../../../../redux/action/userAction';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector  } from 'react-redux';
 import axios from 'axios';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
+
 
 import style from './CommentaireForm.module.scss';
+import { setConnectedUser } from '../../../../redux/action/userAction';
 
 const CommentaireForm = memo(({id}) => {
+  const[user, setUser] = useState();
   const mail = useSelector((state) => state.isLogged.email);
+  
   const commentsData = useSelector((state) => state.comments.comments);
+  const getUserActual = useSelector((state)=> state.userConnected._id);
+  let history = useHistory();
+
   
   const { register, handleSubmit } = useForm();
   // const dispatch = useDispatch();
 
-
+  const getUser = async()=>{
+    const response = await axios
+    .get(`http://localhost:3001/user/${getUserActual}`)
+    .catch((err)=>{
+      console.log({message: err});
+    });
+    if(response.status===200){
+      setUser(response.data.email);
+    }
+  }
   const addComment = async (mail, comments) => {
     const comment = {
       email: mail,
@@ -36,7 +53,6 @@ const CommentaireForm = memo(({id}) => {
         });
       });
       console.log("response",response);
-      
       if (response.status === 200) {
         // dispatch(setComment(comment));
         toast.success(`${response.data.message}`, {
@@ -44,7 +60,11 @@ const CommentaireForm = memo(({id}) => {
           position: toast.POSITION.TOP_CENTER,
           autoClose: 3000,
         });
-        console.log(commentsData);
+        setTimeout(()=>{
+          history.go(0);
+        },3000)
+
+        console.log(commentsData.message);
       }else{      
         toast.error(`${response.data.message}`, {
           className: 'error-toast',
@@ -53,9 +73,12 @@ const CommentaireForm = memo(({id}) => {
         });
       }
     };
-
+    useEffect(()=>{
+      getUser();
+    })
   const onSubmit = (data) => {
-    addComment(mail, data.commentaire );
+    addComment(user, data.commentaire );
+
   };
 
   return (
@@ -63,7 +86,7 @@ const CommentaireForm = memo(({id}) => {
       <ToastContainer/>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={style.formGroup}>
-            <h3>Bonjour {mail} , vous voulez donnez votre avis à propos de cet voiture ? </h3>
+            <h3>Bonjour {user} , vous voulez donnez votre avis à propos de cette voiture ? </h3>
           <textarea
             name="commentaire"
             id="commentaire"
@@ -71,7 +94,7 @@ const CommentaireForm = memo(({id}) => {
             {...register('commentaire')}
           />
           <div className={style.submitButton}>
-            <button type="submit">Laisser un commntaire</button>
+            <button type="submit">Laisser un commentaire</button>
           </div>
         </div>
       </form>

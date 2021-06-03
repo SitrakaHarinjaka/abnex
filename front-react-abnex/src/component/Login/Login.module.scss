@@ -16,12 +16,18 @@
     -moz-box-pack: center;
     justify-content: center;
     .contentFormulaire{
-        width: 640px;
         margin: auto;
-        padding: $bigSpace 100px $vBigSpace;
+        padding: $space $bigSpace $bigSpace;
         border-radius: $radius;
         background-color: $white-color;
         box-shadow: 0 $smallSpace $mediumSpace rgba($colorBoxShadow, 0.15);
+        width: 95%;        
+        box-sizing: border-box;
+        
+        @media(min-width: $m){
+            padding: $bigSpace 100px $vBigSpace;
+            width: 640px;
+        }
         .formulaire{
             h3{
                 color: $primary-color;

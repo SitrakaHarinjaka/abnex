@@ -1,20 +1,43 @@
 @import '../../scss/variable.module.scss';
 .header{
     background-color: $white-color;
-    padding: $space 0;
     box-shadow: 0 3px 5px 0 rgba(0, 48, 87, 0.1);
     margin-bottom: $space;
     position: fixed;
     width: 100%;
     z-index: 100;
+    padding: $smallSpace 0;
+    @media(min-width: 420px){
+        padding: $space 0;
+    }
+    .logo{
+        width: 45px;
+        @media(min-width: 420px){
+            width: 75px;
+        }
+        img{
+            width: 100%;
+        }
+    }
     .container{
-        width: $max-width;
+        width: 95%;
         margin: auto;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-direction: column;
+        @media(min-width: 420px){
+            flex-direction: row;
+        }
+        @media(min-width:$l){
+            width: $max-width;            
+        }
         .image{
             width: 50px;
+            display: none;
+            @media(min-width: 420px){
+                display: block;
+            }
             height: auto;
             img{
                 border-radius: 150px;
@@ -28,6 +51,7 @@
     }
     .navigation{
         ul{
+            margin: 0;
             li{
                 display: inline;
                 a{
@@ -39,7 +63,22 @@
                         color: $dark-color;
                     }
                 }
+                button{
+                    background-color: $primary-color;
+                    border: none;
+                    border-radius: $radius;
+                    padding: $space;
+                    margin-right: $space;
+                    color: $white-color;
+                    font: 700 14px/21px $font-din;
+                    cursor: pointer;
+                    transition: .5s ease-in-out;
+                    &:hover{
+                        background-color: $dark-color;
+                    }
+                }
             }
         }
+        
     }
 }

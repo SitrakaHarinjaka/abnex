@@ -21,7 +21,7 @@ const CommentaireList = memo(({id}) => {
         console.log('Err', err);
       });
     dispatch(getComments(response.data[0]["postComments"]));
-    console.log(commentsList);
+    
     
   };
 

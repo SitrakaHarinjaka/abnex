@@ -6,12 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectedCars } from '../../redux/action/carsActions';
 import CommentaireForm from './utilsSingleCars/CommentaireForm';
 import CommentaireList from './utilsSingleCars/CommentaireList';
+import { Link } from 'react-router-dom';
+
 
 import styles from './SingleCars.module.scss';
 
 const SingleCars = memo(() => {
   const car = useSelector((state) => state.car);
-  const loggedIn = useSelector((state) => state.isLogged.isLogged);
+  const loggedIn = useSelector((state) => state.userConnected);
   const { mark, color, description, type } = car;
   const { idCars } = useParams();
   const dispatch = useDispatch();
@@ -33,7 +35,30 @@ const SingleCars = memo(() => {
       return require(`../../images/${car.mark}.png`).default;
     }
   }, [car.mark]);
+  // console.log("eto lesqy euh", loggedIn && loggedIn._id!=='');
 
+  const Commentaire = memo(() => {
+    if (loggedIn !== {} && loggedIn._id !== undefined) {
+      return (
+        <div>
+          <CommentaireList id={idCars} />
+          <CommentaireForm id={idCars} />
+        </div>
+      );
+    }
+    return (
+      <div className={styles.containerNotConnected}>
+        <div>
+          <span>Veuillez vous connecter pour ajouter un commentaire</span>
+        </div>
+        <div className={styles.button}>
+          <Link to='/login'>
+              Se connecter
+          </Link>
+        </div>
+      </div>
+    );
+  }, [loggedIn]);
 
   return (
     <section className={styles.singleCar}>
@@ -52,14 +77,7 @@ const SingleCars = memo(() => {
           </div>
         </div>
       </div>
-      <CommentaireList id={idCars} />
-      {
-        (loggedIn)?
-          <CommentaireForm id={idCars} />
-          :null
-      }
-
-      
+      <Commentaire />
     </section>
   );
 });

@@ -2,7 +2,10 @@
 .listCars{
     margin: $bigSpace 0;
     .itemContainer{
-        width: $max-width;
         margin: auto;
+        width:95%;
+        @media(min-width:$l){
+            width: $max-width;
+        }
     }
 }

@@ -48,3 +48,13 @@ export const getComments = (state = [], { type, payload }) => {
       return state;
   }
 };
+
+export const setUserConnected = (state = {} , {type, payload}) => {
+  switch (type) {
+    case ActionTypes.CONNECTED_USER:
+      return {...state, ...payload}
+  
+    default:
+      return state;
+  }
+}

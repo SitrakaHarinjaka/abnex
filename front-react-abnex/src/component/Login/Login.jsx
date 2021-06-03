@@ -14,8 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const Login = memo(() => {
   const isLogged = useSelector((state) => state.isLogged);
-
-  console.log(isLogged);
+  localStorage.setItem('jwtToken', isLogged.token);
+  
   let history = useHistory();
 
   const { register, handleSubmit } = useForm();
@@ -31,7 +31,7 @@ const Login = memo(() => {
       .post(`http://localhost:3001/user/login`, login)
       .catch((err) => {
         console.log('Err', err);
-      });
+      });      
     dispatch(setLogin(response.data));
     if (response.data.isLogged === true) {
       toast.success(`Bienvenue ${response.data.email}`, {
@@ -41,6 +41,7 @@ const Login = memo(() => {
       });
       setTimeout(()=>{
         history.push('/car');
+        history.go(0)
       },5000)
     }else{
       toast.error(`User non-identifié, veuillez réessayer`, {
@@ -53,6 +54,7 @@ const Login = memo(() => {
 
 
   const onSubmit = (data) => {
+    
     loginUser(data.mail, data.password);
   };
   return (
@@ -61,7 +63,7 @@ const Login = memo(() => {
       <div className={style.containerLogin}>
         <div className={style.contentFormulaire}>
           <div className={style.formulaire}>
-            <h3>Login</h3>
+            <h3>Se connecter</h3>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group">
                 <input
@@ -83,9 +85,9 @@ const Login = memo(() => {
               </div>
               <div className={style.submitButton}>
                 <span>
-                  <Link to="/signin">Signin ?</Link>
+                  <Link to="/signin">S'inscrire ?</Link>
                 </span>
-                <button type="submit"> Submit</button>
+                <button type="submit">Connexion</button>
               </div>
               
             </form>

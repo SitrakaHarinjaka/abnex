@@ -19,10 +19,10 @@ const ListCars = memo(() => {
     const response = await axios
       .get('http://localhost:3001/cars')
       .catch((err) => {
-        console.log('Err', err);
+        
       });
     dispatch(setCars(response.data));
-    console.log(cars);
+    
   };
 
   useEffect(() => {

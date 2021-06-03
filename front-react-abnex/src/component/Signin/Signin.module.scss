@@ -1,6 +1,6 @@
 @import '../../scss/variable.module.scss';
 .back{
-    background: linear-gradient(90deg, #f9b301, #e48181);
+    background: linear-gradient(90deg,  #81e4c7, #9ea5bf);
 }
 .containerSignin{
     height: -webkit-calc(100vh - 135px);
@@ -16,15 +16,21 @@
     -moz-box-pack: center;
     justify-content: center;
     .contentFormulaire{
-        width: 640px;
         margin: auto;
-        padding: $bigSpace 100px $vBigSpace;
+        padding: $space $bigSpace $bigSpace;
         border-radius: $radius;
         background-color: $white-color;
         box-shadow: 0 $smallSpace $mediumSpace rgba($colorBoxShadow, 0.15);
+        width: 95%;        
+        box-sizing: border-box;
+
+        @media(min-width: $m){
+            padding: $bigSpace 100px $vBigSpace;
+            width: 640px;
+        }
         .formulaire{
             h3{
-                color: $primary-color;
+                color: #9ea5bf;
                 font: 700 32px/48px $font-din;
                 text-align: center  ;
             }
@@ -46,7 +52,7 @@
                 text-align: right;
                 a{
                     font: 700 14px/21px $font-din;
-                    color: $primary-color;
+                    color: #9ea5bf;
                     margin-right: $space;
                     transition: color ease-in-out .5s;
                     &:hover{
@@ -54,7 +60,7 @@
                     }
                 }
                 button{
-                    background-color: $primary-color;
+                    background-color: #9ea5bf;
                     border: none;
                     border-radius: $radius;
                     padding: $space $vBigSpace;
