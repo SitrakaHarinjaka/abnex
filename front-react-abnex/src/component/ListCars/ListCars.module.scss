@@ -7,5 +7,18 @@
         @media(min-width:$l){
             width: $max-width;
         }
+        a{
+            div{
+                transition: .3s ease-in-out;
+            }
+            @media(min-width: $m){
+                &:hover{
+                    > div{
+                        transform: scale(1.03)
+                        
+                    }
+                }
+            }
+        }
     }
 }
