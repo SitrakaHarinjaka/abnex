@@ -8,3 +8,4 @@ front-react-abnex ==> (front-end)
 2nd step: launch front-react-abnex => npm install => npm start
 
 
+NB: node: 12.19.1 , npm :6.14.8
