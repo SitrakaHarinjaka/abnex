@@ -7,11 +7,13 @@ require('dotenv/config');
 
 const carsRoute = require('./routes/cars');
 const userRoute = require('./routes/user');
+const privateRoute = require('./routes/privateLogin');
 //Middlewares
 app.use(cors());
 app.use(express.json());
 app.use('/cars', carsRoute);
 app.use('/user', userRoute);
+app.use('/private', privateRoute);
 
 //ROUTES
 app.get('/', (req, res) => {

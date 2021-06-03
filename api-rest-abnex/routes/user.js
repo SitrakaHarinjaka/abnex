@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Users = require('../models/User');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
 //GET all users
@@ -21,6 +22,7 @@ router.post('/signin', async (req, res) => {
   }
 
   const hashpassword = await bcrypt.hash(req.body.password, 12);
+
   const user = new Users({
     password: hashpassword,
     email: req.body.email,
@@ -33,17 +35,21 @@ router.post('/signin', async (req, res) => {
   }
 });
 
-
 router.post('/login', async (req, res) => {
   const user = await Users.findOne({ email: req.body.email });
-  if (!user)return res.send({isLogged: false});  
+  if (!user) return res.send({ isLogged: false });
   //check password
   const validPass = await bcrypt.compare(req.body.password, user.password);
 
-  if(!validPass)  return res.send({isLogged: false});
-  res.send({isLogged: true,email: user.email})
-});
+  if (!validPass) return res.send({ isLogged: false });
+  //create a token
 
+  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+  
+  res
+    .header('auth-token', token)
+    .send({ isLogged: true, email: user.email, token });
+});
 
 //get One User
 router.get('/:userId', async (req, res) => {
