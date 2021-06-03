@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const CarsSchema = mongoose.Schema({
+const CarsSchema = new Schema({
     mark: {
         type: String,
         require: true
@@ -16,7 +17,13 @@ const CarsSchema = mongoose.Schema({
     description:{
         type: String,
         require: false
-    }
+    },
+    postComments: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Comment',
+        },
+      ],
 });
 
 module.exports = mongoose.model('Cars', CarsSchema);

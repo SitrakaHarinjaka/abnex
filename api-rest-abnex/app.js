@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/cars', carsRoute);
 app.use('/user', userRoute);
+
 //ROUTES
 app.get('/', (req, res) => {
   res.send('We are on Home');
