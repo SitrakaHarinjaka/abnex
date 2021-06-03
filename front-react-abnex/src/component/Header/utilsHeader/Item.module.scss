@@ -1,0 +1,126 @@
+@import 'scss/var.scss';
+
+.item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin:$space $smallSpace;
+  background: $kolwhite;
+  box-shadow: 0 $smallSpace $mediumSpace rgba($colorBoxShadow, 0.15);
+  border-radius: $radius;
+  position: relative;
+  justify-content: space-between;  
+  padding: $space $mediumSpace $space $space;
+  &.itemMinimize{
+    justify-content: center;
+    width: 100%;
+    @media (min-width: $sm) {
+      width: 100%;
+      margin-right: $smallSpace;
+      margin-left: $smallSpace;
+    }
+    @media (min-width: $m) {
+      width: 31%;
+    }
+  }
+  @media (min-width: $sm) {
+    width: 47%;
+  }
+  @media (min-width: $m) {
+    width: 31%;
+  }
+  .typeContent{
+    color: $kolpink;
+  }
+  h3,.typeContent {
+    font-style: normal;
+    font: 700 16px/24px $font-din;
+    text-transform: uppercase;
+    margin-bottom: $mediumSpace;
+    @media (min-width: $sm) {
+      font-size: 18px;
+      line-height: 27px;
+    }
+    @media (min-width: $xl) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+  p {
+    font-size: 16px;
+    line-height: 24px;
+    width: 100%;
+    min-width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    @media (min-width: $xl) {
+      font-size: 14px;
+      line-height: 21px;
+      width: 50%;
+      min-width: 50%;
+
+    }
+  }
+}
+.itemBody {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  @media (min-width: $xl) {
+    flex-direction: row;
+  }
+}
+.buttonContent {
+  padding: $space 0;
+}
+.itemCta {
+  text-decoration: none;
+  &--disabled {
+    left: 0;
+    transform: none;
+    bottom: 0;
+    width: 100%;
+    background-color: $kolblueHover;
+    border-radius: 0 0 $radius $radius;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $kolwhite;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+}
+
+.image {
+  width: 100%;
+  text-align: center;
+  img {
+    width: 60%;
+    height: auto;
+    @media(min-width: $xl){
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    margin-top: $smallSpace;
+    width: 74%;
+    margin: auto;
+  }
+}
+
+.textMinimized{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p{
+    text-align: center;
+    font-style: normal;
+    font: 700 16px/24px $font-din;
+    text-transform: uppercase;
+    margin-bottom: $mediumSpace;
+  }
+}

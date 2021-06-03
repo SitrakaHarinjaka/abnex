@@ -1,0 +1,92 @@
+$max-width: 960px;
+$primary-color: #ffb300;
+$space: 16px;
+$dark-color : #636363;
+$white-color: #fff;
+$radius: 4px;
+$light-gray: #c1c1c1;
+
+
+
+
+
+
+
+$s: 320px;
+$sm: 560px;
+$mobDev: 640px;
+$m: 768px;
+$t: 992px;
+$l: 1024px;
+$desktop : 1199px;
+$xl: 1280px;
+
+$maxWidth: 960px;
+$colorBoxShadow : #003057;
+$smallSpace: 8px;
+$space: 16px;
+$mediumSpace: 24px;
+$bigSpace: 32px;
+$vBigSpace: 64px;
+$boxShadow: 0 4px 12px 0 rgba($colorBoxShadow, .05);
+$radius: 4px;
+
+/*** Kolsquare TRUE colors ***/
+$kolgrey: #7F97B0;
+$kolpink: #ff729f;
+$kolpink2: lighten(#ff729f, 25%);
+$kolpinkHover: #DB538C;
+$kolblue: #00ccff;
+$kolblueHover: #009FDB;
+$lightkolblue: #f5fcff;
+$kolturquoise: #30e2bf;
+$kolturquoise2: lighten(#30e2bf, 25%);
+$kolnavy: #003057;
+$lightkolblue: #f5fcff;
+$kollavender: #dcccff;
+$kolwhite: #ffffff;
+$col-light-grey: rgba(220, 204, 255, 0.1);
+$kolblueBand: #4c6e89;
+$buttonBlue: #33d6ff;
+
+$grey: #999999;
+$lightgrey: #f4f4f4;
+$darkgrey: #54585A;
+$disabled: #d1d1d1;
+$grey2: #dddddd;
+$text: lighten(#4F4F4F, 20%);
+
+$disabled-2: #CCD6E3;
+$hover: #99ACBC;
+
+$danger: #fc3950;
+$error: #DD2727;
+
+$tinySpace: 4px;
+$space: 16px;
+$smallSpace: 8px;
+$xlSpace: 48px;
+$bigSpace: 32px;
+$boxShadow: 0 4px 12px 0 rgba(0,48,87, .05);
+$radius: 4px;
+$border: 1px solid #CCD6E3;
+$borderColor: $kolgrey;
+$borderHover: #B2C0D2;
+$focusShadow: #CCFFFA;
+
+$border: 1px solid #CCD6E3;
+$transition: cubic-bezier(0.260, -0.335, 1.000, 0.565);
+
+$font-pf: "Playfair Display";
+$font-din: "D-Din Exp";
+$font-roboto : "Roboto", "Helvetica", "Arial", "sans-serif";
+
+@mixin borderFocus {
+  outline: none;
+  border-color: $kolblue;
+  box-shadow: 0 0 0 3px $focusShadow;
+}
+
+
+
+

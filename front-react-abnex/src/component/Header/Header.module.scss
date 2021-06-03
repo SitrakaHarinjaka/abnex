@@ -1,0 +1,45 @@
+@import '../../scss/variable.module.scss';
+.header{
+    background-color: $white-color;
+    padding: $space 0;
+    box-shadow: 0 3px 5px 0 rgba(0, 48, 87, 0.1);
+    margin-bottom: $space;
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    .container{
+        width: $max-width;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .image{
+            width: 50px;
+            height: auto;
+            img{
+                border-radius: 150px;
+                width: 100%;
+            }
+        }
+    }
+    .navImage{
+        display: flex;
+        align-items: center;
+    }
+    .navigation{
+        ul{
+            li{
+                display: inline;
+                a{
+                    font: 700 14px/21px $font-din;
+                    color: $primary-color;
+                    margin-right: $space;
+                    transition: color ease-in-out .5s;
+                    &:hover{
+                        color: $dark-color;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+@import '../../scss/variable.module.scss';
+.listCars{
+    margin: $bigSpace 0;
+    .itemContainer{
+        width: $max-width;
+        margin: auto;
+    }
+}

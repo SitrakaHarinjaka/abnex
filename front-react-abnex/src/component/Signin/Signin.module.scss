@@ -1,0 +1,72 @@
+@import '../../scss/variable.module.scss';
+.back{
+    background: linear-gradient(90deg, #f9b301, #e48181);
+}
+.containerSignin{
+    height: -webkit-calc(100vh - 135px);
+    height: calc(100vh - 135px);
+    min-height: 500px;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: flex;
+    -webkit-align-items: center;
+    -moz-box-align: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    justify-content: center;
+    .contentFormulaire{
+        width: 640px;
+        margin: auto;
+        padding: $bigSpace 100px $vBigSpace;
+        border-radius: $radius;
+        background-color: $white-color;
+        box-shadow: 0 $smallSpace $mediumSpace rgba($colorBoxShadow, 0.15);
+        .formulaire{
+            h3{
+                color: $primary-color;
+                font: 700 32px/48px $font-din;
+                text-align: center  ;
+            }
+            input{
+                width: 100%;
+                padding: $space;
+                margin-bottom: $space;
+                border-radius: $radius;
+                border: solid 1px $light-gray;
+                font: 700 14px/21px $font-din;
+                box-sizing: border-box;
+                outline: none;
+                color: $dark-color;
+                &::placeholder{
+                    color: $light-gray;
+                }
+            }
+            .submitButton{
+                text-align: right;
+                a{
+                    font: 700 14px/21px $font-din;
+                    color: $primary-color;
+                    margin-right: $space;
+                    transition: color ease-in-out .5s;
+                    &:hover{
+                        color: $dark-color;
+                    }
+                }
+                button{
+                    background-color: $primary-color;
+                    border: none;
+                    border-radius: $radius;
+                    padding: $space $vBigSpace;
+                    color: $white-color;
+                    font: 700 14px/21px $font-din;
+                    cursor: pointer;
+                    transition: .5s ease-in-out;
+                    &:hover{
+                        background-color: $dark-color;
+                    }
+                }
+            }
+        }
+    }
+}

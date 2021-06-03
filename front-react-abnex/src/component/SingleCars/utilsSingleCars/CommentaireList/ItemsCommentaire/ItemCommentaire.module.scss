@@ -1,0 +1,17 @@
+@import '../../../../../scss/variable.module.scss';
+
+.container{
+    background-color: $white-color;
+    margin: $space 0;
+    padding: $space $bigSpace;
+    border-radius: $radius;
+    box-shadow: 0 $smallSpace $mediumSpace rgba($colorBoxShadow, 0.15);
+    span{
+        font: 500 12px/18px $font-din;
+        color: $primary-color;
+    }
+    p{
+        font: 700 14px/21px $font-din;
+        color: $dark-color;
+    }
+}

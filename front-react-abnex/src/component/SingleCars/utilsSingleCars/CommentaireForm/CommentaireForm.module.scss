@@ -1,0 +1,40 @@
+@import '../../../../scss/variable.module.scss';
+
+.commentContainer{
+    background-color: $white-color;
+    margin: $bigSpace 0;
+    padding: $bigSpace $vBigSpace;
+    border-radius: $radius;
+    box-shadow: 0 $smallSpace $mediumSpace rgba($colorBoxShadow, 0.15);
+    textarea{
+        width: 100%;
+        border: solid 1px $light-gray;
+        border-radius: $radius;
+        padding: $space;
+        font: 700 14px/21px $font-din;
+        box-sizing: border-box;
+        outline: none;
+        color: $dark-color;
+        margin-bottom: $bigSpace;
+        min-height: 150px;
+        &::placeholder{
+            color: $light-gray;
+        }
+    }
+    .submitButton{
+        text-align: right;
+        button{
+            background-color: $primary-color;
+            border: none;
+            border-radius: $radius;
+            padding: $space $vBigSpace;
+            color: $white-color;
+            font: 700 14px/21px $font-din;
+            cursor: pointer;
+            transition: .5s ease-in-out;
+            &:hover{
+                background-color: $dark-color;
+            }
+        }
+    }
+}
