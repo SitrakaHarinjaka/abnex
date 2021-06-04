@@ -25,7 +25,7 @@ const App = memo(() => {
             <Route path="/login" exact component={Login}/>
             <Route path="/signin" exact component={Signin}/>
             <Route path="/car/:idCars" exact component={SingleCars}/>
-            <Route>404 not found</Route>
+            <Route path="/404">404 not found</Route>
           </Switch>
         </div>
         <Footer />

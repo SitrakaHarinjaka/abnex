@@ -20,7 +20,7 @@ const SingleCars = memo(() => {
 
   const fetchSingleCarDetail = async () => {
     const response = await axios
-      .get(`http://localhost:3001/cars/${idCars}`)
+      .get(`${process.env.REACT_APP_SERVER_HOST}/cars/${idCars}`)
       .catch((err) => {
         console.log('Err', err);
       });

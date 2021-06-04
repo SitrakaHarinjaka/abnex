@@ -28,7 +28,7 @@ const Login = memo(() => {
       password,
     };
     const response = await axios
-      .post(`http://localhost:3001/user/login`, login)
+      .post(`${process.env.REACT_APP_SERVER_HOST}/user/login`, login)
       .catch((err) => {
         console.log('Err', err);
       });      

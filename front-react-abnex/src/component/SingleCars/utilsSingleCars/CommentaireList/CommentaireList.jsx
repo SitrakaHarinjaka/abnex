@@ -16,7 +16,7 @@ const CommentaireList = memo(({id}) => {
 
   const fetchCommentaire = async () => {
     const response = await axios
-      .get(`http://localhost:3001/cars/${id}/comments`)
+      .get(`${process.env.REACT_APP_SERVER_HOST}/cars/${id}/comments`)
       .catch((err) => {
         console.log('Err', err);
       });

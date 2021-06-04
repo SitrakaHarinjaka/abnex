@@ -22,9 +22,10 @@ const Header = memo(() => {
   const dispatch = useDispatch();
 
   const sessionuser = localStorage.getItem('jwtToken');
+
   const checkUserSession = async () => {
     const response = await axios
-      .get('http://localhost:3001/private', {
+      .get(`${process.env.REACT_APP_SERVER_HOST}/private`, {
         headers: {
           'auth-token': sessionuser,
         },
@@ -35,7 +36,6 @@ const Header = memo(() => {
       if(response){
         dispatch(setConnectedUser(response.data));
       }
-
   };
 
   useEffect(() => {

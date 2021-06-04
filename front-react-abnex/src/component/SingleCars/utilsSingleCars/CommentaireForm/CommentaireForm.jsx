@@ -29,7 +29,7 @@ const CommentaireForm = memo(({id}) => {
 
   const getUser = async()=>{
     const response = await axios
-    .get(`http://localhost:3001/user/${getUserActual}`)
+    .get(`${process.env.REACT_APP_SERVER_HOST}/user/${getUserActual}`)
     .catch((err)=>{
       console.log({message: err});
     });
@@ -44,7 +44,7 @@ const CommentaireForm = memo(({id}) => {
       cars: id
     };
     const response = await axios
-      .post(`http://localhost:3001/cars/${id}/comments`, comment)
+      .post(`${process.env.REACT_APP_SERVER_HOST}/cars/${id}/comments`, comment)
       .catch((err) => {
         toast.error(`${err}`, {
           className: 'error-toast',
